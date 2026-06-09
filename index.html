@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التصحيح النموذجي - ديداكتيك التربية الإسلامية</title>
+    
+    <!-- إدراج مكتبة Tailwind CSS للتصميم -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- إدراج خطوط جوجل (Cairo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- إدراج أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- إعدادات Tailwind المخصصة -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        islamic: {
+                            light: '#e6f4ea',
+                            DEFAULT: '#0d9488', // Teal 600
+                            dark: '#0f766e',   // Teal 700
+                            accent: '#d97706', // Amber 600
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+        }
+        
+        /* حركات التبويبات */
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* تنسيق الجداول */
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        th, td {
+            border-bottom: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+        }
+        th:last-child, td:last-child {
+            border-right: none;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-islamic-light selection:text-islamic-dark">
+
+    <!-- رأس الصفحة -->
+    <header class="bg-islamic text-white shadow-lg relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pattern-islamic"></div>
+        <div class="max-w-6xl mx-auto px-4 py-8 relative z-10 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-3"><i class="fa-solid fa-book-quran ml-2"></i> التصحيح النموذجي والمفصل للامتحان التجريبي</h1>
+            <p class="text-islamic-light text-lg">ديداكتيك التربية الإسلامية - قارن إجاباتك لتقييم مستواك</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row gap-8">
+        
+        <!-- القائمة الجانبية (التبويبات) -->
+        <aside class="w-full md:w-1/4">
+            <div class="bg-white rounded-xl shadow-md p-4 sticky top-4">
+                <h2 class="text-xl font-bold text-slate-700 mb-4 border-b pb-2">محاور الامتحان</h2>
+                <nav class="flex flex-col gap-2" id="tabs-nav">
+                    <button data-target="axis-1" class="tab-btn w-full text-right px-4 py-3 rounded-lg font-semibold bg-islamic text-white transition-colors duration-200 hover:bg-islamic-dark">
+                        <i class="fa-solid fa-book-open ml-2"></i> المحور الأول
+                    </button>
+                    <button data-target="axis-2" class="tab-btn w-full text-right px-4 py-3 rounded-lg font-semibold text-slate-600 hover:bg-slate-100 transition-colors duration-200">
+                        <i class="fa-solid fa-link ml-2"></i> المحور الثاني
+                    </button>
+                    <button data-target="axis-3" class="tab-btn w-full text-right px-4 py-3 rounded-lg font-semibold text-slate-600 hover:bg-slate-100 transition-colors duration-200">
+                        <i class="fa-solid fa-table-list ml-2"></i> المحور الثالث
+                    </button>
+                    <button data-target="axis-4" class="tab-btn w-full text-right px-4 py-3 rounded-lg font-semibold text-slate-600 hover:bg-slate-100 transition-colors duration-200">
+                        <i class="fa-solid fa-file-pen ml-2"></i> المحور الرابع
+                    </button>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- منطقة عرض المحتوى -->
+        <section class="w-full md:w-3/4">
+            
+            <!-- المحور الأول: المفاهيم الأساسية -->
+            <div id="axis-1" class="tab-content active bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-islamic mb-6 border-r-4 border-islamic-accent pr-3">المحور الأول: المفاهيم الأساسية والتعاريف</h2>
+                
+                <div class="space-y-4">
+                    <!-- سؤال 1 -->
+                    <div class="border border-slate-200 rounded-lg overflow-hidden">
+                        <button class="accordion-btn w-full text-right px-5 py-4 bg-slate-50 hover:bg-islamic-light font-bold text-lg flex justify-between items-center transition-colors">
+                            <span>1. الديداكتيك وديداكتيك التربية الإسلامية</span>
+                            <i class="fa-solid fa-chevron-down text-islamic transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content hidden px-5 py-4 bg-white text-slate-700 leading-relaxed border-t border-slate-200">
+                            <ul class="list-disc list-inside space-y-2 marker:text-islamic">
+                                <li><strong>الديداكتيك (العامة):</strong> علم يهتم بكيفية تدريس مادة معينة (القواعد والمبادئ المشتركة المعتمدة في تدريس جميع المواد).</li>
+                                <li><strong>ديداكتيك التربية الإسلامية:</strong> تفكيك وتبسيط المعارف الشرعية لتناسب عمر الطفل.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- سؤال 2 -->
+                    <div class="border border-slate-200 rounded-lg overflow-hidden">
+                        <button class="accordion-btn w-full text-right px-5 py-4 bg-slate-50 hover:bg-islamic-light font-bold text-lg flex justify-between items-center transition-colors">
+                            <span>2. النقل الديداكتيكي</span>
+                            <i class="fa-solid fa-chevron-down text-islamic transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content hidden px-5 py-4 bg-white text-slate-700 leading-relaxed border-t border-slate-200">
+                            <p>هو تحويل المعرفة من شكلها الأكاديمي الصعب إلى مبسط قابل للتدريس.</p>
+                        </div>
+                    </div>
+
+                    <!-- سؤال 3 -->
+                    <div class="border border-slate-200 rounded-lg overflow-hidden">
+                        <button class="accordion-btn w-full text-right px-5 py-4 bg-slate-50 hover:bg-islamic-light font-bold text-lg flex justify-between items-center transition-colors">
+                            <span>3. التمثلات</span>
+                            <i class="fa-solid fa-chevron-down text-islamic transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content hidden px-5 py-4 bg-white text-slate-700 leading-relaxed border-t border-slate-200">
+                            <p>هي الأفكار والتصورات القبلية المختزنة في ذهن المتعلم حول موضوع ما.</p>
+                        </div>
+                    </div>
+
+                    <!-- سؤال 4 -->
+                    <div class="border border-slate-200 rounded-lg overflow-hidden">
+                        <button class="accordion-btn w-full text-right px-5 py-4 bg-slate-50 hover:bg-islamic-light font-bold text-lg flex justify-between items-center transition-colors">
+                            <span>4. التقويم التربوي والهدف منه</span>
+                            <i class="fa-solid fa-chevron-down text-islamic transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content hidden px-5 py-4 bg-white text-slate-700 leading-relaxed border-t border-slate-200">
+                            <p>هو آلية لمواكبة وقياس مدى تحقق الأهداف والكفايات المسطرة ومستوى نضج القيم لدى المتعلم، والكشف عن مكتسباته وتعديل مسار تعلمه.</p>
+                        </div>
+                    </div>
+
+                    <!-- سؤال 5 -->
+                    <div class="border border-slate-200 rounded-lg overflow-hidden">
+                        <button class="accordion-btn w-full text-right px-5 py-4 bg-slate-50 hover:bg-islamic-light font-bold text-lg flex justify-between items-center transition-colors">
+                            <span>5. المقاربة</span>
+                            <i class="fa-solid fa-chevron-down text-islamic transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content hidden px-5 py-4 bg-white text-slate-700 leading-relaxed border-t border-slate-200">
+                            <p>هي الإطار المرجعي والفلسفي الناظم للعملية التعليمية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- المحور الثاني: أسئلة الربط بسهم -->
+            <div id="axis-2" class="tab-content bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-islamic mb-6 border-r-4 border-islamic-accent pr-3">المحور الثاني: أسئلة الربط (الإجابات الصحيحة)</h2>
+                
+                <div class="space-y-8">
+                    <!-- 6. أنواع التقويم -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-3 flex items-center text-slate-700"><i class="fa-solid fa-clock ml-2 text-islamic-accent"></i> 6. نوع التقويم ووظيفته الزمنية</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                <span class="block font-bold text-blue-700 mb-2">التقويم التشخيصي (القبلي)</span>
+                                <p class="text-sm text-slate-600">يتم في بداية الدرس أو السلسلة للكشف عن مكتسبات المتعلمين وتمثلاتهم وتحديد نقط انطلاقهم.</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <span class="block font-bold text-green-700 mb-2">التقويم التكويني (المستمر)</span>
+                                <p class="text-sm text-slate-600">يواكب عملية بناء الدرس خطوة بخطوة لمراقبة الفهم الفوري وتعديل مسار التعلم.</p>
+                            </div>
+                            <div class="bg-amber-50 p-4 rounded-lg border border-amber-100">
+                                <span class="block font-bold text-amber-700 mb-2">التقويم الإجمالي (الختامي)</span>
+                                <p class="text-sm text-slate-600">يتم في نهاية الدرس لقياس مدى تحقق الأهداف والكفايات ومستوى نضج القيم.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. العصور -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-3 flex items-center text-slate-700"><i class="fa-solid fa-hourglass-half ml-2 text-islamic-accent"></i> 7. العصر (النظرية التربوية) وخصائصه</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-start gap-4 p-3 hover:bg-slate-50 rounded">
+                                <span class="font-bold text-islamic w-1/4 shrink-0">العصر النبوي:</span>
+                                <span class="text-slate-600">التربية بالوحي والقدوة المباشرة لبناء العقيدة (مدرسة دار الأرقم).</span>
+                            </div>
+                            <div class="flex items-start gap-4 p-3 hover:bg-slate-50 rounded">
+                                <span class="font-bold text-islamic w-1/4 shrink-0">عصر الصحابة:</span>
+                                <span class="text-slate-600">التربية بالامتثال، ونقل الرسالة، وتأسيس الكتاتيب وحلقات المساجد.</span>
+                            </div>
+                            <div class="flex items-start gap-4 p-3 hover:bg-slate-50 rounded">
+                                <span class="font-bold text-islamic w-1/4 shrink-0">عصر التابعين:</span>
+                                <span class="text-slate-600">بداية التدوين، والتخصص العلمي، ومنهجية الاستنباط.</span>
+                            </div>
+                            <div class="flex items-start gap-4 p-3 hover:bg-slate-50 rounded">
+                                <span class="font-bold text-islamic w-1/4 shrink-0">العصر الذهبي:</span>
+                                <span class="text-slate-600">نضوج النظريات التربوية المتكاملة والجمع بين الوحي والعقل.</span>
+                            </div>
+                            <div class="flex items-start gap-4 p-3 hover:bg-slate-50 rounded">
+                                <span class="font-bold text-islamic w-1/4 shrink-0">العصر الحديث:</span>
+                                <span class="text-slate-600">التوفيق بين القيم الإسلامية الثابتة والعلوم التربوية والنفسية الحديثة.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. المادة المتقاطعة -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-3 flex items-center text-slate-700"><i class="fa-solid fa-arrows-turn-to-dots ml-2 text-islamic-accent"></i> 8. المادة المتقاطعة ومجال التقاطع</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="border p-3 rounded flex flex-col">
+                                <strong class="text-indigo-600">الرياضيات</strong>
+                                <span class="text-sm mt-1 text-slate-600">حساب المقادير (الزكاة، المواريث) واستخدام الأعداد والزمن (مواقيت الصلاة).</span>
+                            </div>
+                            <div class="border p-3 rounded flex flex-col">
+                                <strong class="text-indigo-600">اللغة العربية</strong>
+                                <span class="text-sm mt-1 text-slate-600">استثمار النصوص الشرعية لتنمية المهارات القرائية وإغناء الرصيد اللغوي.</span>
+                            </div>
+                            <div class="border p-3 rounded flex flex-col">
+                                <strong class="text-indigo-600">النشاط العلمي</strong>
+                                <span class="text-sm mt-1 text-slate-600">تكامل دروس الطهارة مع دروس الصحة والنظافة، وحفظ الماء.</span>
+                            </div>
+                            <div class="border p-3 rounded flex flex-col">
+                                <strong class="text-indigo-600">الاجتماعيات</strong>
+                                <span class="text-sm mt-1 text-slate-600">ربط السيرة النبوية بالزمن والأحداث التاريخية، وتحديد القبلة جغرافيا.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 9. المداخل و 10. القيم -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-bold mb-3 text-slate-700">9. المداخل الخمسة:</h3>
+                            <ul class="space-y-2 text-sm text-slate-700">
+                                <li><span class="font-bold text-islamic">التزكية:</span> القرآن الكريم والعقيدة.</li>
+                                <li><span class="font-bold text-islamic">الاقتداء:</span> السيرة النبوية وأخلاق الرسول ﷺ.</li>
+                                <li><span class="font-bold text-islamic">الاستجابة:</span> العبادات الأساسية (عملياً).</li>
+                                <li><span class="font-bold text-islamic">القسط:</span> الحقوق (الله، النفس، الغير، البيئة).</li>
+                                <li><span class="font-bold text-islamic">الحكمة:</span> الإصلاح والمبادرة والفضائل.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-3 text-slate-700">10. القيم المركزية:</h3>
+                            <ul class="space-y-2 text-sm text-slate-700">
+                                <li><span class="font-bold text-islamic-accent">التوحيد:</span> بناء الجانب الاعتقادي ومراقبة الله.</li>
+                                <li><span class="font-bold text-islamic-accent">الحرية:</span> التحرر من التبعية والوعي بالمسؤولية.</li>
+                                <li><span class="font-bold text-islamic-accent">الاستقامة:</span> الالتزام بالأخلاق وأداء العبادات.</li>
+                                <li><span class="font-bold text-islamic-accent">الإحسان:</span> إتقان العمل والتعامل برفق.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- المحور الثالث: إملاء الفراغات والجداول -->
+            <div id="axis-3" class="tab-content bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-islamic mb-6 border-r-4 border-islamic-accent pr-3">المحور الثالث: إملاء الفراغات والجداول</h2>
+                
+                <div class="space-y-8">
+                    <!-- 11. جدول مستويات التخطيط -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-3 text-slate-700">11. جدول مستويات التخطيط</h3>
+                        <div class="overflow-x-auto">
+                            <table class="text-sm text-right text-slate-600">
+                                <thead class="bg-slate-100 text-slate-800 font-bold">
+                                    <tr>
+                                        <th class="p-3">مستوى التخطيط</th>
+                                        <th class="p-3">المدى الزمني</th>
+                                        <th class="p-3">الوظيفة / المفهوم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="p-3 font-bold text-islamic">التخطيط السنوي</td>
+                                        <td class="p-3">بعيد المدى</td>
+                                        <td class="p-3">توزيع مبرمج للمحاور والوحدات على مدار السنة الدراسية.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="p-3 font-bold text-islamic">التخطيط الخاص بوحدة</td>
+                                        <td class="p-3">متوسط (المرحلي)</td>
+                                        <td class="p-3">تخطيط خاص بوحدة دراسية معينة (تغطي عادة عدة أسابيع).</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="p-3 font-bold text-islamic">التخطيط اليومي</td>
+                                        <td class="p-3">قصير المدى</td>
+                                        <td class="p-3">تخطيط الحصص والأنشطة اليومية بالتفصيل عبر "الجذاذة التربوية".</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 12. جدول المقاصد الكبرى -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-3 text-slate-700">12. جدول المقاصد الكبرى</h3>
+                        <div class="overflow-x-auto">
+                            <table class="text-sm text-right text-slate-600">
+                                <thead class="bg-slate-100 text-slate-800 font-bold">
+                                    <tr>
+                                        <th class="p-3 w-1/4">المقصد</th>
+                                        <th class="p-3">تعريفه</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="p-3 font-bold text-islamic-accent">مقصد وجودي</td>
+                                        <td class="p-3">تعميق صلة المتعلم بخالقه وعمارة الأرض.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="p-3 font-bold text-islamic-accent">مقصد كوني</td>
+                                        <td class="p-3">الاقتداء بالرسول ﷺ كنموذج للرحمة والتسامح.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="p-3 font-bold text-islamic-accent">مقصد حقوقي</td>
+                                        <td class="p-3">غرس قيم الإنصاف والوعي بالحقوق والواجبات.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="p-3 font-bold text-islamic-accent">مقصد جودي</td>
+                                        <td class="p-3">بناء عنصر إيجابي يساهم في الخير العام للمجتمع.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 13 & 14. إملاء الفراغات ومجال التقويم -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                            <h3 class="font-bold mb-3 text-slate-700">13. المقاربات البيداغوجية</h3>
+                            <ul class="space-y-3 text-sm text-slate-700">
+                                <li>المقاربة بـ <span class="bg-yellow-200 text-yellow-800 px-2 py-0.5 rounded font-bold">المضامين</span>: شحن ذاكرة المتعلم بكمية من المعلومات.</li>
+                                <li>المقاربة بـ <span class="bg-yellow-200 text-yellow-800 px-2 py-0.5 rounded font-bold">الأهداف</span>: تجزيء التعلم إلى أهداف سلوكية صغيرة.</li>
+                                <li>المقاربة بـ <span class="bg-green-200 text-green-800 px-2 py-0.5 rounded font-bold">الكفايات</span>: جعل المتعلم فاعلاً يستطيع توظيف ما تعلمه في سياقات واقعية.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                            <h3 class="font-bold mb-3 text-slate-700">14. تحديد مجال التقويم</h3>
+                            <ul class="space-y-3 text-sm text-slate-700">
+                                <li>حفظ آيات من سورة: <span class="font-bold text-islamic">المجال المعرفي</span></li>
+                                <li>الالتزام بخلق الأمانة: <span class="font-bold text-islamic">المجال القيمي والسلوكي</span></li>
+                                <li>التطبيق العملي للصلاة: <span class="font-bold text-islamic">المجال المهاري / الأداء</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- المحور الرابع: الأسئلة المباشرة والتحليلية -->
+            <div id="axis-4" class="tab-content bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-islamic mb-6 border-r-4 border-islamic-accent pr-3">المحور الرابع: الأسئلة المباشرة والتحليلية</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    
+                    <div class="bg-white border border-slate-200 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2 border-b pb-2">15. مكونات المنهاج والمداخل</h3>
+                        <ul class="text-sm text-slate-600 space-y-1 mt-2">
+                            <li><strong>المكونات (4):</strong> الأهداف، المحتويات، الطرائق والوسائل، التقويم.</li>
+                            <li><strong>المداخل (3):</strong> مدخل القيم، مدخل الكفايات، مدخل التربية على الاختيار.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2 border-b pb-2">16. خطوات إعداد الخطة الإجرائية</h3>
+                        <ol class="list-decimal list-inside text-sm text-slate-600 space-y-1 mt-2">
+                            <li>تحديد الكفايات والأهداف التعليمية.</li>
+                            <li>اختيار الوسائل والدعامات الملائمة.</li>
+                            <li>تحديد مهام المدرس وأنشطة المتعلم والتقويم.</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2 border-b pb-2">17. الهيكلة الزمنية</h3>
+                        <ul class="list-disc list-inside text-sm text-slate-600 space-y-1 mt-2">
+                            <li>4 حصص أسبوعياً.</li>
+                            <li>45 دقيقة لكل حصة دراسية.</li>
+                            <li>تقديم المداخل الخمسة بالتناوب والتكامل.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2 border-b pb-2">18. مرتكزات التدبير التربوي</h3>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="bg-slate-100 px-2 py-1 rounded text-sm font-semibold text-slate-700">تدبير الغلاف الزمني</span>
+                            <span class="bg-slate-100 px-2 py-1 rounded text-sm font-semibold text-slate-700">وظيفية القيم</span>
+                            <span class="bg-slate-100 px-2 py-1 rounded text-sm font-semibold text-slate-700">التدرج البيداغوجي</span>
+                            <span class="bg-slate-100 px-2 py-1 rounded text-sm font-semibold text-slate-700">المرونة والملاءمة</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2 border-b pb-2">19. توظيف الوسائل الرقمية</h3>
+                        <ul class="text-sm text-slate-600 space-y-1 mt-2">
+                            <li><strong>الأشكال:</strong> وسائط سمعية بصرية، تطبيقات تفاعلية، عرض منظم.</li>
+                            <li><strong>الشروط:</strong> الوظيفية، الملاءمة العمرية، الاعتدال والاتزان.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2 border-b pb-2">20. أدوات وآليات التقويم</h3>
+                        <ul class="list-disc list-inside text-sm text-slate-600 space-y-1 mt-2">
+                            <li>الوضعية المشكلة التقويمية.</li>
+                            <li>الاختبارات الشفهية والكتابية.</li>
+                            <li>شبكات الملاحظة السلوكية (لتتبع القيم).</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow md:col-span-2">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2 border-b pb-2">21. أركان النظرية التربوية العامة والأسئلة</h3>
+                        <div class="flex flex-col md:flex-row gap-4 mt-2">
+                            <div class="flex-1">
+                                <strong class="text-sm text-islamic">الأركان (4):</strong>
+                                <p class="text-sm text-slate-600">الأهداف، المنهاج، طرق التدريس، التقويم.</p>
+                            </div>
+                            <div class="flex-1 border-r border-slate-200 pr-4">
+                                <strong class="text-sm text-islamic">الأسئلة التي تجيب عنها:</strong>
+                                <p class="text-sm font-bold text-slate-700 text-center bg-slate-100 rounded py-2 mt-1">لماذا نعلم؟ ماذا نعلم؟ كيف نعلم؟</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow md:col-span-2">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2 border-b pb-2">22. التقاطع مع التربية الفنية والبدنية</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                            <div>
+                                <strong class="text-sm text-pink-600"><i class="fa-solid fa-palette ml-1"></i> التربية الفنية:</strong>
+                                <p class="text-sm text-slate-600 mt-1">تجويد وترتيل القرآن (المقامات)، والاهتمام بالخط العربي وتزيين الآيات.</p>
+                            </div>
+                            <div>
+                                <strong class="text-sm text-orange-600"><i class="fa-solid fa-person-running ml-1"></i> التربية البدنية:</strong>
+                                <p class="text-sm text-slate-600 mt-1">ربط حركات الصلاة بالجانب الحركي، واعتبار الصيام تدريباً على التحمل.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 text-center py-6 mt-8">
+        <p>التصحيح النموذجي - ديداكتيك التربية الإسلامية &copy; بالتوفيق في مسارك المهني والتربوي</p>
+    </footer >
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // منطق التبويبات (Tabs Logic)
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // إزالة التفعيل من كل الأزرار والمحتويات
+                    tabBtns.forEach(b => {
+                        b.classList.remove('bg-islamic', 'text-white');
+                        b.classList.add('text-slate-600', 'hover:bg-slate-100');
+                    });
+                    tabContents.forEach(c => {
+                        c.classList.remove('active');
+                    });
+
+                    // تفعيل الزر والمحتوى المطلوب
+                    btn.classList.add('bg-islamic', 'text-white');
+                    btn.classList.remove('text-slate-600', 'hover:bg-slate-100');
+                    const targetId = btn.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+
+            // منطق الأكورديون (Accordion Logic)
+            const accordionBtns = document.querySelectorAll('.accordion-btn');
+            
+            accordionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    
+                    // تبديل حالة العرض
+                    if (content.classList.contains('hidden')) {
+                        content.classList.remove('hidden');
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        content.classList.add('hidden');
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
